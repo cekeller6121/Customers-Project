@@ -20,7 +20,7 @@ response.json().then(function(data){
 
 
   for (i = 0; i < data.results.length; i++) {
-    var custPicture = data.results[i].picture.medium;
+    var custPicture = data.results[i].picture.large;
     console.log(custPicture);
     var custName = data.results[i].name.first + " " + data.results[i].name.last;
     console.log(custName);
@@ -42,11 +42,13 @@ response.json().then(function(data){
     <div class="customerinfo">
       <ul>
         <li><img src="${custPicture}"></li>
-        <li>${custName}</li>
-        <li>${custEmail}</li>
-        <li>${custStreet}</li>
-        <li>${custCityStateZip}</li>
-        <li>${custPhoneNumber}</li>
+        <li><h3>${custName}</h3></li>
+        <hr>
+        <br>
+        <li><span>${custEmail}</span></li>
+        <li><span>${custStreet}</span></li>
+        <li><span>${custCityStateZip}</span></li>
+        <li><span>${custPhoneNumber}</span></li>
         </ul>
     </div>`
 

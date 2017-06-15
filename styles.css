@@ -1,6 +1,33 @@
+* {
+  font-family: sans-serif;
+}
+
+h3 {
+  margin-bottom: -8px;
+}
+
+hr {
+  border-color: Green;
+  width: 65%;
+}
+
+li {
+  padding: 2px;
+}
+
+span {
+  color: Gray;
+}
+
 #customers {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
+  text-align: center;
+}
+
+#customers img {
+  width: 20vw;
+  height: 20vw;
 }
 
 #customers ul {
