@@ -1,0 +1,8 @@
+#customers {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+#customers ul {
+  list-style-type: none;
+}

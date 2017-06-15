@@ -16,6 +16,8 @@ fetch('https://randomuser.me/api/?results=12&nat=us')
 
 response.json().then(function(data){
 
+  var folks = [];
+
 
   for (i = 0; i < data.results.length; i++) {
     var custPicture = data.results[i].picture.medium;
@@ -26,29 +28,30 @@ response.json().then(function(data){
     console.log(custEmail);
     var custStreet = data.results[i].location.street;
     console.log(custStreet);
-    var custCityZip = data.results[i].location.city + " " + data.results[i].location.postcode;
-    console.log(custCityZip);
+    var custCityStateZip = data.results[i].location.city + " " + data.results[i].location.state + " " + data.results[i].location.postcode;
+    console.log(custCityStateZip);
     var custPhoneNumber = data.results[i].phone;
     console.log(custPhoneNumber);
-    var custInfoPacket = (custPicture + custName + custEmail + custStreet + custCityZip + custPhoneNumber);
-  }
+    var custInfoPacket = (custPicture + custName + custEmail + custStreet + custCityStateZip + custPhoneNumber);
 
-  console.log(custInfoPacket + "custInfoPacket printed");
+
 
 
 
   let htmlMarkup = `
-    <div class="customers">
+    <div class="customerinfo">
       <ul>
-        <li>${custInfoPacket}</li>
-        <li>${custInfoPacket}</li>
-        <li>${custInfoPacket}</li>
-        <li>${custInfoPacket}</li>
-        <li>${custInfoPacket}</li>
-        <li>${custInfoPacket}</li>
+        <li><img src="${custPicture}"></li>
+        <li>${custName}</li>
+        <li>${custEmail}</li>
+        <li>${custStreet}</li>
+        <li>${custCityStateZip}</li>
+        <li>${custPhoneNumber}</li>
         </ul>
     </div>`
 
-document.getElementById("customers").innerHTML = htmlMarkup;
+document.getElementById("customers").innerHTML += htmlMarkup;
 
-})});
+    }
+  })
+});
